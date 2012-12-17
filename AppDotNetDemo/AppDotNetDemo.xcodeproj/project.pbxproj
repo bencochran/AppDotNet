@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C07341D167FC2F6002B9EBC /* libAppDotNet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C073417167FC2A3002B9EBC /* libAppDotNet.a */; };
 		8CAFE1FB167FBC0D00C0AA11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAFE1FA167FBC0D00C0AA11 /* UIKit.framework */; };
 		8CAFE1FD167FBC0D00C0AA11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAFE1FC167FBC0D00C0AA11 /* Foundation.framework */; };
 		8CAFE1FF167FBC0D00C0AA11 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAFE1FE167FBC0D00C0AA11 /* CoreGraphics.framework */; };
@@ -25,6 +26,30 @@
 		8CAFE223167FBC0E00C0AA11 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CAFE222167FBC0E00C0AA11 /* second.png */; };
 		8CAFE225167FBC0E00C0AA11 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CAFE224167FBC0E00C0AA11 /* second@2x.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8C073416167FC2A3002B9EBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CAFE28A167FBE8200C0AA11 /* AppDotNet.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8CED1A6C167C5FC80071D908;
+			remoteInfo = AppDotNet;
+		};
+		8C073418167FC2A3002B9EBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CAFE28A167FBE8200C0AA11 /* AppDotNet.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8CED1A7D167C5FC90071D908;
+			remoteInfo = AppDotNetTests;
+		};
+		8C07341B167FC2C1002B9EBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CAFE28A167FBE8200C0AA11 /* AppDotNet.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CED1A6B167C5FC80071D908;
+			remoteInfo = AppDotNet;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8CAFE1F6167FBC0D00C0AA11 /* AppDotNetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppDotNetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +75,7 @@
 		8CAFE220167FBC0E00C0AA11 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		8CAFE222167FBC0E00C0AA11 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		8CAFE224167FBC0E00C0AA11 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		8CAFE28A167FBE8200C0AA11 /* AppDotNet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AppDotNet.xcodeproj; path = ../../AppDotNet.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C07341D167FC2F6002B9EBC /* libAppDotNet.a in Frameworks */,
 				8CAFE1FB167FBC0D00C0AA11 /* UIKit.framework in Frameworks */,
 				8CAFE1FD167FBC0D00C0AA11 /* Foundation.framework in Frameworks */,
 				8CAFE1FF167FBC0D00C0AA11 /* CoreGraphics.framework in Frameworks */,
@@ -66,10 +93,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C073412167FC2A3002B9EBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C073417167FC2A3002B9EBC /* libAppDotNet.a */,
+				8C073419167FC2A3002B9EBC /* AppDotNetTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8CAFE1EB167FBC0D00C0AA11 = {
 			isa = PBXGroup;
 			children = (
 				8CAFE200167FBC0D00C0AA11 /* AppDotNetDemo */,
+				8CAFE296167FBE9100C0AA11 /* External */,
 				8CAFE1F9167FBC0D00C0AA11 /* Frameworks */,
 				8CAFE1F7167FBC0D00C0AA11 /* Products */,
 			);
@@ -127,6 +164,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8CAFE296167FBE9100C0AA11 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				8CAFE28A167FBE8200C0AA11 /* AppDotNet.xcodeproj */,
+			);
+			name = External;
+			path = AppDotNetDemo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +187,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8C07341C167FC2C1002B9EBC /* PBXTargetDependency */,
 			);
 			name = AppDotNetDemo;
 			productName = AppDotNetDemo;
@@ -166,12 +213,35 @@
 			mainGroup = 8CAFE1EB167FBC0D00C0AA11;
 			productRefGroup = 8CAFE1F7167FBC0D00C0AA11 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8C073412167FC2A3002B9EBC /* Products */;
+					ProjectRef = 8CAFE28A167FBE8200C0AA11 /* AppDotNet.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8CAFE1F5167FBC0D00C0AA11 /* AppDotNetDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8C073417167FC2A3002B9EBC /* libAppDotNet.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAppDotNet.a;
+			remoteRef = 8C073416167FC2A3002B9EBC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8C073419167FC2A3002B9EBC /* AppDotNetTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AppDotNetTests.octest;
+			remoteRef = 8C073418167FC2A3002B9EBC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8CAFE1F4167FBC0D00C0AA11 /* Resources */ = {
@@ -206,6 +276,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8C07341C167FC2C1002B9EBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AppDotNet;
+			targetProxy = 8C07341B167FC2C1002B9EBC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8CAFE203167FBC0D00C0AA11 /* InfoPlist.strings */ = {
@@ -328,6 +406,7 @@
 				8CAFE22A167FBC0E00C0AA11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
