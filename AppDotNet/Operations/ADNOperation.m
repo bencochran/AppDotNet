@@ -87,8 +87,15 @@
 
 - (void)main
 {
+    if ([self.class tokenType] != ADNTokenTypeNone) {
+        NSAssert(self.accessToken, @"This API endpoint (/%@) requires an access token", [self.class endpoint]);
+    }
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.url];
     request.HTTPMethod = [self.class method];
+    if (self.accessToken) {
+        [request addValue:[@"Bearer " stringByAppendingString:self.accessToken] forHTTPHeaderField:@"Authorization"];
+    }
     
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     

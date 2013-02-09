@@ -30,6 +30,7 @@ typedef enum {
 
 @property (nonatomic, strong) void (^responseHandler)(ADNResponseEnvelope *response, NSError *error);
 
+@property (nonatomic, copy) NSString *accessToken;
 @property (nonatomic, strong) NSDictionary *parameters;
 
 @end
