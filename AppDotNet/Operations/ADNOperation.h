@@ -22,14 +22,20 @@ typedef enum {
 @interface ADNOperation : NSOperation
 
 // Endpoint properties
-+ (NSURL *)baseURL;
-
-+ (NSString *)description;
-+ (NSString *)method;
-+ (NSString *)endpoint;
-+ (ADNTokenType)tokenType;
++ (NSURL *)endpointBaseURL;
++ (NSString *)endpointDescription;
++ (NSString *)endpointMethod;
++ (NSString *)endpointPath;
++ (ADNTokenType)endpointRequiredToken;
 
 + (NSDictionary *)propertyKeysByURITemplateKey;
+
+
+@property (nonatomic, copy) NSURL *baseURL;
+@property (nonatomic, copy) NSString *method;
+@property (nonatomic, copy) NSString *path;
+@property (nonatomic, assign) ADNTokenType requiredToken;
+
 
 @property (nonatomic, strong) void (^responseHandler)(ADNResponseEnvelope *response, NSError *error);
 

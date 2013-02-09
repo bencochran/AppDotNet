@@ -28,27 +28,27 @@ NSString * const ADNAlphaAPIBaseURL = @"https://alpha-api.app.net/stream/0/";
 
 #pragma mark - Endpoint
 
-+ (NSURL *) baseURL
++ (NSURL *)endpointBaseURL
 {
     return [NSURL URLWithString:ADNAlphaAPIBaseURL];
 }
 
-+ (NSString *)description
++ (NSString *)endpointDescription
 {
     return nil;
 }
 
-+ (NSString *)method
++ (NSString *)endpointMethod
 {
     return @"GET";
 }
 
-+ (NSString *)endpoint
++ (NSString *)endpointPath
 {
     return nil;
 }
 
-+ (ADNTokenType)tokenType
++ (ADNTokenType)endpointRequiredToken
 {
     return ADNTokenTypeNone;
 }
@@ -59,11 +59,27 @@ NSString * const ADNAlphaAPIBaseURL = @"https://alpha-api.app.net/stream/0/";
 }
 
 
+#pragma mark - Initialize
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // init properties with defaults for the endpoint
+        self.baseURL       = [self.class endpointBaseURL];
+        self.path          = [self.class endpointPath];
+        self.method        = [self.class endpointMethod];
+        self.requiredToken = [self.class endpointRequiredToken];
+    }
+    return self;
+}
+
+
 #pragma mark - Operation
 
 - (NSURL *)url
 {
-    NSString *endpoint = [self.class endpoint];
+    NSString *endpoint = self.path;
     
     // process URI template
     NSDictionary *keyPairs = [self.class propertyKeysByURITemplateKey];
@@ -89,17 +105,17 @@ NSString * const ADNAlphaAPIBaseURL = @"https://alpha-api.app.net/stream/0/";
     }
     
     // Append to base URL
-    return [NSURL URLWithString:endpoint relativeToURL:[self.class baseURL]];
+    return [NSURL URLWithString:endpoint relativeToURL:self.baseURL];
 }
 
 - (void)main
 {
-    if ([self.class tokenType] != ADNTokenTypeNone) {
-        NSAssert(self.accessToken, @"This API endpoint (/%@) requires an access token", [self.class endpoint]);
+    if (self.requiredToken) {
+        NSAssert(self.accessToken, @"This API endpoint (/%@) requires an access token", self.path);
     }
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.url];
-    request.HTTPMethod = [self.class method];
+    request.HTTPMethod = self.method;
     if (self.accessToken) {
         [request addValue:[@"Bearer " stringByAppendingString:self.accessToken] forHTTPHeaderField:@"Authorization"];
     }

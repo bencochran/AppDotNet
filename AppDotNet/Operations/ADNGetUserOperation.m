@@ -13,12 +13,12 @@
 
 #pragma mark - Endpoint
 
-+ (NSString *)description
++ (NSString *)endpointDescription
 {
     return @"Retrieve a User";
 }
 
-+ (NSString *)endpoint
++ (NSString *)endpointPath
 {
     return @"users/{user_id}";
 }

@@ -13,17 +13,17 @@
 
 #pragma mark - Endpoint
 
-+ (NSString *)description
++ (NSString *)endpointDescription
 {
     return @"Retrieve multiple Users";
 }
 
-+ (NSString *)endpoint
++ (NSString *)endpointPath
 {
     return @"users";
 }
 
-+ (ADNTokenType)tokenType
++ (ADNTokenType)endpointRequiredToken
 {
     return ADNTokenTypeAny;
 }

@@ -13,12 +13,12 @@
 
 #pragma mark - Endpoint
 
-+ (NSString *)description
++ (NSString *)endpointDescription
 {
     return @"Retrieve the Global stream";
 }
 
-+ (NSString *)endpoint
++ (NSString *)endpointPath
 {
     return @"posts/stream/global";
 }
