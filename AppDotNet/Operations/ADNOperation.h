@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ADNResponseEnvelope.h"
+#import "ADNParameters.h"
 
 
 typedef enum {
@@ -31,6 +32,8 @@ typedef enum {
 @property (nonatomic, strong) void (^responseHandler)(ADNResponseEnvelope *response, NSError *error);
 
 @property (nonatomic, copy) NSString *accessToken;
+@property (nonatomic, assign) BOOL prettyJSON;
+
 @property (nonatomic, strong) NSDictionary *parameters;
 
 @end

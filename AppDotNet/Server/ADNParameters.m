@@ -9,6 +9,9 @@
 #import "ADNParameters.h"
 
 
+NSString * const ADNHeaderPrettyJSON = @"X-ADN-Pretty-JSON";
+
+
 NSString * const ADNParameterSinceId  = @"since_id";
 NSString * const ADNParameterBeforeId = @"before_id";
 NSString * const ADNParameterCount    = @"count";

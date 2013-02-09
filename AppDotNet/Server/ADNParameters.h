@@ -7,6 +7,11 @@
 //
 
 
+// http://developers.app.net/docs/basics/responses/#pretty-printed-json
+
+extern NSString * const ADNHeaderPrettyJSON;
+
+
 // http://developers.app.net/docs/basics/pagination/#parameters
 
 extern NSString * const ADNParameterSinceId;

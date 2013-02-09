@@ -12,9 +12,6 @@
 #import "ADNResponseEnvelope.h"
 
 
-NSString * const ADNHeaderPrettyJSON = @"X-ADN-Pretty-JSON";
-
-
 @implementation ADNClient
 
 + (instancetype)sharedClient

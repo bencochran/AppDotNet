@@ -96,6 +96,10 @@
     if (self.accessToken) {
         [request addValue:[@"Bearer " stringByAppendingString:self.accessToken] forHTTPHeaderField:@"Authorization"];
     }
+    if (self.prettyJSON) {
+        [request addValue:@"1" forHTTPHeaderField:ADNHeaderPrettyJSON];
+    }
+
     
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
