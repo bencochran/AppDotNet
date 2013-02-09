@@ -74,6 +74,18 @@ NSString * const ADNAlphaAPIBaseURL = @"https://alpha-api.app.net/stream/0/";
     return self;
 }
 
+- (void)setBaseURL:(NSURL *)baseURL
+{
+    if (_baseURL != baseURL) {
+        // Ensure terminal slash for baseURL path, so that NSURL +URLWithString:relativeToURL: works as expected
+        if ([[baseURL path] length] > 0 && ![[baseURL absoluteString] hasSuffix:@"/"]) {
+            baseURL = [baseURL URLByAppendingPathComponent:@""];
+        }
+        
+        _baseURL = [baseURL copy];
+    }
+}
+
 
 #pragma mark - Operation
 
