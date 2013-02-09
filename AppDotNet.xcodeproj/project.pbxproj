@@ -105,6 +105,8 @@
 		8C8F948916C658E9009A2319 /* ADNOperations.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8C8F948816C65896009A2319 /* ADNOperations.h */; };
 		8C8F948C16C65FB9009A2319 /* ADNGetUsersOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8F948B16C65FB9009A2319 /* ADNGetUsersOperation.m */; };
 		8C8F948D16C66299009A2319 /* ADNGetUsersOperation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8C8F948A16C65FB8009A2319 /* ADNGetUsersOperation.h */; };
+		8C8F949016C66963009A2319 /* ADNSearchUsersOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8F948F16C66963009A2319 /* ADNSearchUsersOperation.m */; };
+		8C8F949116C669FD009A2319 /* ADNSearchUsersOperation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8C8F948E16C66963009A2319 /* ADNSearchUsersOperation.h */; };
 		8CAAA89A16B4A2BF00208FA3 /* UIImageView+AFNetworking.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8C85309E16A7B9D100357F6E /* UIImageView+AFNetworking.h */; };
 		8CAAA8A016B4A2F000208FA3 /* AFHTTPRequestOperation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8C85308F16A7B9D100357F6E /* AFHTTPRequestOperation.h */; };
 		8CAAA8A116B4A2F000208FA3 /* AFImageRequestOperation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8C85309116A7B9D100357F6E /* AFImageRequestOperation.h */; };
@@ -193,6 +195,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				8C8F949116C669FD009A2319 /* ADNSearchUsersOperation.h in CopyFiles */,
 				8C8F948D16C66299009A2319 /* ADNGetUsersOperation.h in CopyFiles */,
 				8C8F948916C658E9009A2319 /* ADNOperations.h in CopyFiles */,
 				8C8F948716C6587C009A2319 /* ADNGetUserOperation.h in CopyFiles */,
@@ -364,6 +367,8 @@
 		8C8F948816C65896009A2319 /* ADNOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADNOperations.h; sourceTree = "<group>"; };
 		8C8F948A16C65FB8009A2319 /* ADNGetUsersOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNGetUsersOperation.h; sourceTree = "<group>"; };
 		8C8F948B16C65FB9009A2319 /* ADNGetUsersOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNGetUsersOperation.m; sourceTree = "<group>"; };
+		8C8F948E16C66963009A2319 /* ADNSearchUsersOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNSearchUsersOperation.h; sourceTree = "<group>"; };
+		8C8F948F16C66963009A2319 /* ADNSearchUsersOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADNSearchUsersOperation.m; sourceTree = "<group>"; };
 		8CC18C8A168B00160033B8C5 /* ADNKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADNKeys.h; sourceTree = "<group>"; };
 		8CED1A6C167C5FC80071D908 /* libAppDotNet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAppDotNet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CED1A6F167C5FC80071D908 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -640,6 +645,8 @@
 				8C8F948516C65689009A2319 /* ADNGetUserOperation.m */,
 				8C8F948A16C65FB8009A2319 /* ADNGetUsersOperation.h */,
 				8C8F948B16C65FB9009A2319 /* ADNGetUsersOperation.m */,
+				8C8F948E16C66963009A2319 /* ADNSearchUsersOperation.h */,
+				8C8F948F16C66963009A2319 /* ADNSearchUsersOperation.m */,
 			);
 			name = Users;
 			sourceTree = "<group>";
@@ -1004,6 +1011,7 @@
 				8C8F948116C63235009A2319 /* ADNGetGlobalStreamOperation.m in Sources */,
 				8C8F948616C65689009A2319 /* ADNGetUserOperation.m in Sources */,
 				8C8F948C16C65FB9009A2319 /* ADNGetUsersOperation.m in Sources */,
+				8C8F949016C66963009A2319 /* ADNSearchUsersOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

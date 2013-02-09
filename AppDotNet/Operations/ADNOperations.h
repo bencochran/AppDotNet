@@ -11,6 +11,7 @@
 // Users
 #import <AppDotNet/ADNGetUserOperation.h>
 #import <AppDotNet/ADNGetUsersOperation.h>
+#import <AppDotNet/ADNSearchUsersOperation.h>
 
 // Posts
 #import <AppDotNet/ADNGetGlobalStreamOperation.h>
