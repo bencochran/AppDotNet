@@ -22,6 +22,8 @@ typedef enum {
 @interface ADNOperation : NSOperation
 
 // Endpoint properties
++ (NSURL *)baseURL;
+
 + (NSString *)description;
 + (NSString *)method;
 + (NSString *)endpoint;

@@ -9,6 +9,9 @@
 #import "ADNOperation.h"
 
 
+NSString * const ADNAlphaAPIBaseURL = @"https://alpha-api.app.net/stream/0/";
+
+
 @interface ADNOperation () <NSURLConnectionDataDelegate>
 
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
@@ -24,6 +27,11 @@
 @implementation ADNOperation
 
 #pragma mark - Endpoint
+
++ (NSURL *) baseURL
+{
+    return [NSURL URLWithString:ADNAlphaAPIBaseURL];
+}
 
 + (NSString *)description
 {
@@ -67,8 +75,6 @@
                                                        withString:replacementString];
     }
     
-    NSString *urlString = [@"https://alpha-api.app.net/stream/0/" stringByAppendingString:endpoint];
-    
     // Append parameters to query string
     NSMutableString *queryString = [NSMutableString string];
     for (NSString *param in self.parameters) {
@@ -78,11 +84,12 @@
         [queryString appendFormat:@"%@=%@", param, self.parameters[param]];
     }
     if (queryString.length) {
-        NSString *joinString = ([urlString rangeOfString:@"?"].location == NSNotFound)?@"?":@"&";
-        urlString = [urlString stringByAppendingFormat:@"%@%@", joinString, queryString];
+        NSString *joinString = ([endpoint rangeOfString:@"?"].location == NSNotFound)?@"?":@"&";
+        endpoint = [endpoint stringByAppendingFormat:@"%@%@", joinString, queryString];
     }
     
-    return [NSURL URLWithString:urlString];
+    // Append to base URL
+    return [NSURL URLWithString:endpoint relativeToURL:[self.class baseURL]];
 }
 
 - (void)main
