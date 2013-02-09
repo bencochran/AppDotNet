@@ -23,6 +23,8 @@
 
 @implementation ADNOperation
 
+#pragma mark - Endpoint
+
 + (NSString *)description
 {
     return nil;
@@ -43,13 +45,34 @@
     return ADNTokenTypeNone;
 }
 
++ (NSDictionary *)propertyKeysByURITemplateKey
+{
+    return nil;
+}
+
 
 #pragma mark - Operation
 
+- (NSURL *)url
+{
+    NSString *endpoint = [self.class endpoint];
+    
+    NSDictionary *keyPairs = [self.class propertyKeysByURITemplateKey];
+    for (NSString *templateKey in keyPairs) {
+        NSString *templateString = [NSString stringWithFormat:@"{%@}", templateKey];
+        NSString *replacementString = [self valueForKey:keyPairs[templateKey]];
+        
+        endpoint = [endpoint stringByReplacingOccurrencesOfString:templateString
+                                                       withString:replacementString];
+    }
+    
+    NSString *urlString = [@"https://alpha-api.app.net/stream/0/" stringByAppendingString:endpoint];
+    return [NSURL URLWithString:urlString];
+}
+
 - (void)main
 {
-    NSURL *url = [NSURL URLWithString:[@"https://alpha-api.app.net/stream/0/" stringByAppendingString:[self.class endpoint]]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.url];
     request.HTTPMethod = [self.class method];
     
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];

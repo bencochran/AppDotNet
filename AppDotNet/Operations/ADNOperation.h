@@ -26,6 +26,8 @@ typedef enum {
 + (NSString *)endpoint;
 + (ADNTokenType)tokenType;
 
++ (NSDictionary *)propertyKeysByURITemplateKey;
+
 @property (nonatomic, strong) void (^responseHandler)(ADNResponseEnvelope *response, NSError *error);
 
 @end

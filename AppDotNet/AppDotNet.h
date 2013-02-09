@@ -33,5 +33,4 @@
 #import <AppDotNet/ADNStreamMarker.h>
 #import <AppDotNet/ADNToken.h>
 
-#import <AppDotNet/ADNOperation.h>
-#import <AppDotNet/ADNGetGlobalStreamOperation.h>
+#import <AppDotNet/ADNOperations.h>
