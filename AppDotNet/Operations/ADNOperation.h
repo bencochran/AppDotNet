@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ADNResponseEnvelope.h"
 
 
 @interface ADNOperation : NSOperation
+
+@property (nonatomic, strong) void (^responseHandler)(ADNResponseEnvelope *response, NSError *error);
 
 @end

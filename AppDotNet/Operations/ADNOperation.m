@@ -35,14 +35,21 @@
     while (dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_NOW))
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
                                  beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
-    
-    NSLog(@"response: %@", [NSString stringWithUTF8String:self.responseData.bytes]);
 }
 
 - (void)finish
 {
     dispatch_semaphore_signal(self.semaphore);
 }
+
+- (void)handleResponseEnvelope:(ADNResponseEnvelope *)responseEnvelope
+                         error:(NSError *)error
+{
+    if (self.responseHandler) {
+        self.responseHandler(responseEnvelope, error);
+    }
+}
+
 
 #pragma mark - NSURLConnectionDataDelegate
 
@@ -61,12 +68,21 @@ didReceiveResponse:(NSURLResponse *)response
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    NSError *error = nil;
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NULL error:&error];
+    
+    ADNResponseEnvelope *responseEnvelope = nil;
+    if (jsonObject)
+        responseEnvelope = [ADNResponseEnvelope modelWithExternalRepresentation:jsonObject];
+    
+    [self handleResponseEnvelope:responseEnvelope error:error];
     [self finish];
 }
 
 - (void)connection:(NSURLConnection *)connection
   didFailWithError:(NSError *)error
 {
+    [self handleResponseEnvelope:nil error:error];
     [self finish];
 }
 
