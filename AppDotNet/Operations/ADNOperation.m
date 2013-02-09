@@ -57,6 +57,7 @@
 {
     NSString *endpoint = [self.class endpoint];
     
+    // process URI template
     NSDictionary *keyPairs = [self.class propertyKeysByURITemplateKey];
     for (NSString *templateKey in keyPairs) {
         NSString *templateString = [NSString stringWithFormat:@"{%@}", templateKey];
@@ -67,6 +68,20 @@
     }
     
     NSString *urlString = [@"https://alpha-api.app.net/stream/0/" stringByAppendingString:endpoint];
+    
+    // Append parameters to query string
+    NSMutableString *queryString = [NSMutableString string];
+    for (NSString *param in self.parameters) {
+        if (queryString.length) {
+            [queryString appendString:@"&"];
+        }
+        [queryString appendFormat:@"%@=%@", param, self.parameters[param]];
+    }
+    if (queryString.length) {
+        NSString *joinString = ([urlString rangeOfString:@"?"].location == NSNotFound)?@"?":@"&";
+        urlString = [urlString stringByAppendingFormat:@"%@%@", joinString, queryString];
+    }
+    
     return [NSURL URLWithString:urlString];
 }
 

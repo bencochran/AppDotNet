@@ -10,6 +10,7 @@
 
 // Users
 #import <AppDotNet/ADNGetUserOperation.h>
+#import <AppDotNet/ADNGetUsersOperation.h>
 
 // Posts
 #import <AppDotNet/ADNGetGlobalStreamOperation.h>
