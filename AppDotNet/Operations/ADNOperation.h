@@ -10,7 +10,21 @@
 #import "ADNResponseEnvelope.h"
 
 
+typedef enum {
+    ADNTokenTypeNone = 0,
+    ADNTokenTypeUser = (1 << 0),
+    ADNTokenTypeApp  = (1 << 1),
+    ADNTokenTypeAny  = ADNTokenTypeUser | ADNTokenTypeApp
+} ADNTokenType;
+
+
 @interface ADNOperation : NSOperation
+
+// Endpoint properties
++ (NSString *)description;
++ (NSString *)method;
++ (NSString *)endpoint;
++ (ADNTokenType)tokenType;
 
 @property (nonatomic, strong) void (^responseHandler)(ADNResponseEnvelope *response, NSError *error);
 

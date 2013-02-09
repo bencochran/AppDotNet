@@ -34,3 +34,4 @@
 #import <AppDotNet/ADNToken.h>
 
 #import <AppDotNet/ADNOperation.h>
+#import <AppDotNet/ADNGetGlobalStreamOperation.h>

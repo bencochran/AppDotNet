@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
 
-@property (nonatomic, strong) NSURLRequest *request;
 @property (nonatomic, strong) NSURLConnection *connection;
 
 @property (nonatomic, strong) NSURLResponse *response;
@@ -24,11 +23,36 @@
 
 @implementation ADNOperation
 
++ (NSString *)description
+{
+    return nil;
+}
+
++ (NSString *)method
+{
+    return @"GET";
+}
+
++ (NSString *)endpoint
+{
+    return nil;
+}
+
++ (ADNTokenType)tokenType
+{
+    return ADNTokenTypeNone;
+}
+
+
+#pragma mark - Operation
+
 - (void)main
 {
-    NSURL *url = [NSURL URLWithString:@"https://alpha-api.app.net/stream/0/posts/stream/global"];
-    self.request = [NSURLRequest requestWithURL:url];
-    self.connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self];
+    NSURL *url = [NSURL URLWithString:[@"https://alpha-api.app.net/stream/0/" stringByAppendingString:[self.class endpoint]]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = [self.class method];
+    
+    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     
     self.semaphore = dispatch_semaphore_create(0);
